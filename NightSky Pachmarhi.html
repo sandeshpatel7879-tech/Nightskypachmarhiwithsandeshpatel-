@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NightSky Pachmarhi | Sandesh Patel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a237e;
+            --secondary: #4fc3f7;
+            --accent: #ffab00;
+            --dark: #0d1b2a;
+            --light: #e3f2fd;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(13, 27, 42, 0.85), rgba(13, 27, 42, 0.9)), 
+                        url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+        
+        .tagline {
+            font-size: 1.8rem;
+            font-style: italic;
+            margin: 2rem 0;
+            color: var(--accent);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .btn-primary-custom {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border: none;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-primary-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .section-padding {
+            padding: 5rem 0;
+        }
+        
+        .info-card-small {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .info-card-small:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.12);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .card-icon-small {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+        
+        .info-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.12);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .package-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(79, 195, 247, 0.2);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .package-card:hover {
+            background: rgba(79, 195, 247, 0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .package-card-large {
+            height: auto;
+        }
+        
+        .price-tag {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: var(--secondary);
+            margin: 1rem 0;
+        }
+        
+        .price-small {
+            font-size: 1.5rem;
+        }
+        
+        .discount-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 8px 40px;
+            transform: rotate(45deg);
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .price-breakdown {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: left;
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .price-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            font-weight: bold;
+            color: var(--accent);
+        }
+        
+        .carousel-item img {
+            border-radius: 15px;
+            height: 500px;
+            object-fit: cover;
+        }
+        
+        .carousel-control-prev, .carousel-control-next {
+            width: 5%;
+        }
+        
+        .carousel-indicators {
+            bottom: -50px;
+        }
+        
+        .carousel-indicators button {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+        
+        .review-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 15px 0;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .star-rating {
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+        
+        .about-section {
+            background: url('https://images.unsplash.com/photo-1532978379171-8a33ce83c864?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        .about-overlay {
+            background: rgba(13, 27, 42, 0.85);
+            padding: 5rem 0;
+        }
+        
+        .guide-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary);
+            margin: 0 auto 2rem;
+            display: block;
+        }
+        
+        footer {
+            background: rgba(0,0,0,0.7);
+            padding: 3rem 0 1rem;
+        }
+        
+        .social-links a {
+            color: var(--secondary);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .thought-box {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent);
+            font-style: italic;
+            text-align: center;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        .contact-details {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-right: 1rem;
+            width: 30px;
+        }
+        
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .telescope-icon {
+            font-size: 4rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+            color: white;
+            border-radius: 15px;
+            border: 1px solid rgba(79, 195, 247, 0.2);
+        }
+        
+        .modal-header {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .modal-footer {
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .btn-close {
+            filter: invert(1);
+        }
+        
+        .invoice-container {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .invoice-header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+        }
+        
+        .invoice-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .invoice-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .invoice-total {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-top: 15px;
+            text-align: right;
+        }
+        
+        .pending-amount {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+        
+        .payment-instruction {
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 10px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            border-left: 3px solid var(--accent);
+        }
+        
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, 15px); }
+            100% { transform: translate(0, -0px); }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .discount-badge {
+                top: 15px;
+                right: -35px;
+                padding: 6px 35px;
+                font-size: 0.9rem;
+            }
+            
+            .carousel-item img {
+                height: 300px;
+            }
+            
+            .invoice-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(13, 27, 42, 0.9);">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-star me-2"></i>NightSky Pachmarhi
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">NightSky Pachmarhi</h1>
+                <p class="hero-subtitle">with Sandesh Patel</p>
+                
+                <div class="tagline">
+                    "Look up at the stars and not down at your feet. Try to make sense of what you see, and wonder about what makes the universe exist."
+                </div>
+                
+                <p class="lead mb-4">Experience the magic of the cosmos through powerful telescopes. Discover planets, stars, and galaxies in the clear skies of Pachmarhi.</p>
+                
+                <div class="mt-4">
+                    <a href="#packages" class="btn btn-primary-custom btn-lg me-3">View Packages</a>
+                    <a href="#contact" class="btn btn-outline-light btn-lg">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Info Section -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Stargazing Experience</h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-md-3 col-sm-6">
+                    <div class="info-card-small">
+                        <i class="fas fa-clock card-icon-small"></i>
+                        <h5>Timing</h5>
+                        <p>8:00 PM - 10:00 PM</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="info-card-small">
+                        <i class="fas fa-hourglass-half card-icon-small"></i>
+                        <h5>Duration</h5>
+                        <p>2 Hours Session</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="section-padding bg-dark">
+        <div class="container">
+            <h2 class="section-title">Stargazing Packages</h2>
+            
+            <!-- Top Row - Two Packages -->
+            <div class="row g-4 mb-4">
+                <div class="col-lg-6">
+                    <div class="package-card">
+                        <i class="fas fa-user telescope-icon"></i>
+                        <h3>Stargazer Solo</h3>
+                        <div class="price-tag">Rs. 750</div>
+                        <p class="mb-4">Perfect for the solo explorer</p>
+                        
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i> 2-hour guided session</li>
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i> Telescope viewing</li>
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i> Constellation identification</li>
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i> Basic astronomy introduction</li>
+                        </ul>
+                        
+                        <button class="btn btn-primary-custom w-100" data-bs-toggle="modal" data-bs-target="#individualModal">Book This Package</button>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="package-card">
+                        <i class="fas fa-heart telescope-icon"></i>
+                        <h3>Cosmic Couple</h3>
+                        <div class="price-tag">Rs. 1,400</div>
+                        <p class="mb-4">A romantic evening under the stars</p>
+                        
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i> Everything in Solo package</li>
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i> Special couple seating</li>
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i> Night sky photography tips</li>
+                            <li class="mb-2"><i class="fas fa-check me-2 text-success"></i> Romantic celestial stories</li>
+                        </ul>
+                        
+                        <button class="btn btn-primary-custom w-100" data-bs-toggle="modal" data-bs-target="#coupleModal">Book This Package</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Row - One Long Package -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="package-card package-card-large">
+                        <div class="discount-badge">30% OFF</div>
+                        <i class="fas fa-users telescope-icon"></i>
+                        <h3>Galaxy Group</h3>
+                        <div class="price-tag">Rs. 525<span class="price-small">/person</span></div>
+                        <p class="mb-4">Ideal for families & friends (5+ people)</p>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="price-breakdown">
+                                    <div class="price-item">
+                                        <span>Regular price (5 people):</span>
+                                        <span>Rs. 3,750</span>
+                                    </div>
+                                    <div class="price-item">
+                                        <span>30% discount:</span>
+                                        <span>- Rs. 1,125</span>
+                                    </div>
+                                    <div class="price-item">
+                                        <span>Final price:</span>
+                                        <span>Rs. 2,625</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled mb-4">
+                                    <li class="mb-2"><i class="fas fa-check me-2 text-success"></i> Everything in Couple package</li>
+                                    <li class="mb-2"><i class="fas fa-check me-2 text-success"></i> Special group activities</li>
+                                    <li class="mb-2"><i class="fas fa-check me-2 text-success"></i> Custom timing available</li>
+                                    <li class="mb-2"><i class="fas fa-check me-2 text-success"></i> Free star maps for everyone</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary-custom w-100 mt-3" data-bs-toggle="modal" data-bs-target="#groupModal">Book This Package</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <p class="text-muted">* For groups of 10+ people, contact us for special custom rates</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-overlay">
+            <div class="container">
+                <h2 class="section-title">About Your Guide</h2>
+                
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Sandesh Patel" class="guide-photo">
+                        <h3>Sandesh Patel</h3>
+                        <p class="text-secondary">Astronomy Guide & Stargazing Expert</p>
+                    </div>
+                    
+                    <div class="col-lg-8">
+                        <div class="info-card">
+                            <p>Welcome to Stargazing Pachmarhi! I'm Sandesh Patel, your personal guide to the wonders of the night sky. With years of experience in astronomy and a deep passion for celestial wonders, I've made it my mission to share the beauty of the cosmos with visitors to Pachmarhi.</p>
+                            
+                            <p>My journey began as a young boy fascinated by the stars, and over the years, I've honed my knowledge through extensive observation and study. Now, I offer guided stargazing sessions that combine scientific knowledge with the sheer wonder of looking up at a sky filled with stars, planets, and distant galaxies.</p>
+                            
+                            <p>Pachmarhi's unique location offers some of the clearest night skies in central India, making it the perfect place for stargazing. Whether you're a complete beginner or an experienced astronomy enthusiast, I'll ensure you have an unforgettable experience under the stars.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Celestial Gallery</h2>
+            
+            <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" class="d-block w-100" alt="Telescope Viewing">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1532978379171-8a33ce83c864?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" class="d-block w-100" alt="People Stargazing">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" class="d-block w-100" alt="Stargazing Group">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1502136969935-8d8eef54d77b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" class="d-block w-100" alt="Milky Way">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" class="d-block w-100" alt="Stars and Mountains">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="section-padding bg-dark">
+        <div class="container">
+            <h2 class="section-title">What Our Stargazers Say</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="review-card">
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"An incredible experience! Sandesh explained everything so clearly. Saw Saturn's rings for the first time - absolutely breathtaking! Highly recommended for anyone visiting Pachmarhi."</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <div class="bg-secondary rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-0">Rahul Sharma</h6>
+                                <small class="text-muted">From Mumbai</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="review-card">
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Perfect romantic evening! The couple package was worth every rupee. The Milky Way was visible so clearly. Sandesh's knowledge of constellations made it magical. Will definitely come back!"</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <div class="bg-secondary rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-0">Priya & Ankit</h6>
+                                <small class="text-muted">Honeymoon Couple</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="review-card">
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"We booked as a family of 7 and got the group discount. Sandesh was amazing with our kids, making the session both educational and fun. The telescopes were high quality. A highlight of our Pachmarhi trip!"</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <div class="bg-secondary rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-0">The Mehta Family</h6>
+                                <small class="text-muted">From Delhi</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="thought-box">
+                        <h4>Inspirational Thought</h4>
+                        <p class="mb-0">"The cosmos is within us. We are made of star-stuff. We are a way for the universe to know itself." - Carl Sagan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-dark">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            
+            <div class="row">
+                <div class="col-md-4 text-center mb-4">
+                    <div class="info-card h-100">
+                        <i class="fas fa-comment-dots card-icon"></i>
+                        <h4>WhatsApp</h4>
+                        <p>Quickest way to reach us</p>
+                        <a href="https://wa.me/919131224289" class="btn btn-success">
+                            <i class="fab fa-whatsapp me-2"></i> Message Now
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 text-center mb-4">
+                    <div class="info-card h-100">
+                        <i class="fas fa-map-marker-alt card-icon"></i>
+                        <h4>Location</h4>
+                        <p>Pachmarhi, Madhya Pradesh</p>
+                        <p class="small">The Queen of Satpura - Perfect for stargazing</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 text-center mb-4">
+                    <div class="info-card h-100">
+                        <i class="fas fa-money-bill-wave card-icon"></i>
+                        <h4>UPI Payment</h4>
+                        <p>For advance booking</p>
+                        <p class="fw-bold fs-5">9131224289@ybl</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Location Map -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h3 class="text-center mb-4">Find Us in Pachmarhi</h3>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117658.83412097586!2d78.3812903227344!3d22.467999999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398601ce5d29c8e3%3A0xfc3c4b4a5751dc1f!2sPachmarhi%2C%20Madhya%20Pradesh%20461881!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Details -->
+            <div class="contact-details mt-5">
+                <h3 class="text-center mb-4">Contact Information</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="contact-item">
+                            <i class="fas fa-phone contact-icon"></i>
+                            <div>
+                                <h5>Phone / WhatsApp</h5>
+                                <p>+91 9131224289</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <div>
+                                <h5>Email</h5>
+                                <p>sandeshpatel7879@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <div>
+                                <h5>Address</h5>
+                                <p>Pachmarhi, Madhya Pradesh 461881</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock contact-icon"></i>
+                            <div>
+                                <h5>Session Timings</h5>
+                                <p>Everyday: 8:00 PM - 10:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4><i class="fas fa-star me-2"></i> Stargazing Pachmarhi</h4>
+                    <p>Experience the magic of the night sky in the beautiful hills of Pachmarhi with expert guide Sandesh Patel.</p>
+                    <div class="contact-item">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <div>
+                            <p>+91 9131224289</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <div>
+                            <p>sandeshpatel7879@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links mb-3">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p>© 2025 Stargazing Pachmarhi with Sandesh Patel. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Individual Package Modal -->
+    <div class="modal fade" id="individualModal" tabindex="-1" aria-labelledby="individualModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="individualModalLabel">Book Stargazer Solo Package</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="individualForm">
+                        <div class="mb-3">
+                            <label for="individualName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="individualName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="individualPhone" class="form-label">WhatsApp Number</label>
+                            <input type="tel" class="form-control" id="individualPhone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="individualDate" class="form-label">Preferred Date</label>
+                            <input type="date" class="form-control" id="individualDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="individualPersons" class="form-label">Number of Persons</label>
+                            <input type="number" class="form-control" id="individualPersons" min="1" value="1" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="individualMessage" class="form-label">Special Requests (Optional)</label>
+                            <textarea class="form-control" id="individualMessage" rows="3"></textarea>
+                        </div>
+                    </form>
+
+                    <!-- Invoice Preview -->
+                    <div class="invoice-container" id="individualInvoice">
+                        <div class="invoice-header">
+                            <h5>Booking Invoice - Stargazer Solo</h5>
+                            <p class="mb-0">Stargazing Pachmarhi</p>
+                        </div>
+                        <div class="invoice-details">
+                            <div>
+                                <p><strong>Customer:</strong> <span id="individualInvoiceName">-</span></p>
+                                <p><strong>Phone:</strong> <span id="individualInvoicePhone">-</span></p>
+                            </div>
+                            <div>
+                                <p><strong>Date:</strong> <span id="individualInvoiceDate">-</span></p>
+                                <p><strong>Persons:</strong> <span id="individualInvoicePersons">-</span></p>
+                            </div>
+                        </div>
+                        <div class="invoice-row">
+                            <span>Package Price:</span>
+                            <span>Rs. 750 / person</span>
+                        </div>
+                        <div class="invoice-row">
+                            <span>Total Persons:</span>
+                            <span id="individualInvoiceTotalPersons">-</span>
+                        </div>
+                        <div class="invoice-row">
+                            <span>Total Amount:</span>
+                            <span id="individualInvoiceTotal">-</span>
+                        </div>
+                        <div class="invoice-row">
+                            <span>Advance (40%):</span>
+                            <span id="individualInvoiceAdvance">-</span>
+                        </div>
+                        <div class="invoice-row pending-amount">
+                            <span>Pending (60%):</span>
+                            <span id="individualInvoicePending">-</span>
+                        </div>
+                        <div class="payment-instruction">
+                            <i class="fas fa-info-circle me-2"></i>
+                            <span>60% pending amount to be paid after stargazing session</span>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <p><i class="fas fa-info-circle me-2 text-warning"></i> To confirm your booking, 40% advance payment required via UPI: <strong>9131224289@ybl</strong></p>
+                        <p><i class="fas fa-sync-alt me-2 text-warning"></i> In case of bad weather, session will be rescheduled or full refund provided</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary-custom" id="generateIndividualInvoice">Generate Invoice</button>
+                    <button type="button" class="btn btn-success" id="sendIndividualWhatsApp" style="display: none;">Send to WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Couple Package Modal -->
+    <div class="modal fade" id="coupleModal" tabindex="-1" aria-labelledby="coupleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="coupleModalLabel">Book Cosmic Couple Package</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="coupleForm">
+                        <div class="mb-3">
+                            <label for="coupleName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="coupleName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="couplePhone" class="form-label">WhatsApp Number</label>
+                            <input type="tel" class="form-control" id="couplePhone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="coupleDate" class="form-label">Preferred Date</label>
+                            <input type="date" class="form-control" id="coupleDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="coupleCouples" class="form-label">Number of Couples</label>
+                            <input type="number" class="form-control" id="coupleCouples" min="1" value="1" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="coupleMessage" class="form-label">Special Requests (Optional)</label>
+                            <textarea class="form-control" id="coupleMessage" rows="3"></textarea>
+                        </div>
+                    </form>
+
+                    <!-- Invoice Preview -->
+                    <div class="invoice-container" id="coupleInvoice">
+                        <div class="invoice-header">
+                            <h5>Booking Invoice - Cosmic Couple</h5>
+                            <p class="mb-0">Stargazing Pachmarhi</p>
+                        </div>
+                        <div class="invoice-details">
+                            <div>
+                                <p><strong>Customer:</strong> <span id="coupleInvoiceName">-</span></p>
+                                <p><strong>Phone:</strong> <span id="coupleInvoicePhone">-</span></p>
+                            </div>
+                            <div>
+                                <p><strong>Date:</strong> <span id="coupleInvoiceDate">-</span></p>
+                                <p><strong>Couples:</strong> <span id="coupleInvoiceCouples">-</span></p>
+                            </div>
+                        </div>
+                        <div class="invoice-row">
+                            <span>Package Price:</span>
+                            <span>Rs. 1,400 / couple</span>
+                        </div>
+                        <div class="invoice-row">
+                            <span>Total Couples:</span>
+                            <span id="coupleInvoiceTotalCouples">-</span>
+                        </div>
+                        <div class="invoice-row">
+                            <span>Total Amount:</span>
+                            <span id="coupleInvoiceTotal">-</span>
+                        </div>
+                        <div class="invoice-row">
+                            <span>Advance (40%):</span>
+                            <span id="coupleInvoiceAdvance">-</span>
+                        </div>
+                        <div class="invoice-row pending-amount">
+                            <span>Pending (60%):</span>
+                            <span id="coupleInvoicePending">-</span>
+                        </div>
+                        <div class="payment-instruction">
+                            <i class="fas fa-info-circle me-2"></i>
+                            <span>60% pending amount to be paid after stargazing session</span>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <p><i class="fas fa-info-circle me-2 text-warning"></i> To confirm your booking, 40% advance payment required via UPI: <strong>9131224289@ybl</strong></p>
+                        <p><i class="fas fa-sync-alt me-2 text-warning"></i> In case of bad weather, session will be rescheduled or full refund provided</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary-custom" id="generateCoupleInvoice">Generate Invoice</button>
+                    <button type="button" class="btn btn-success" id="sendCoupleWhatsApp" style="display: none;">Send to WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Group Package Modal -->
+    <div class="modal fade" id="groupModal" tabindex="-1" aria-labelledby="groupModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="groupModalLabel">Book Galaxy Group Package</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="groupForm">
+                        <div class="mb-3">
+                            <label for="groupName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="groupName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="groupPhone" class="form-label">WhatsApp Number</label>
+                            <input type="tel" class="form-control" id="groupPhone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="groupDate" class="form-label">Preferred Date</label>
+                            <input type="date" class="form-control" id="groupDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="groupPersons" class="form-label">Number of Persons</label>
+                            <input type="number" class="form-control" id="groupPersons" min="5" value="5" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="groupMessage" class="form-label">Special Requests (Optional)</label>
+                            <textarea class="form-control" id="groupMessage" rows="3"></textarea>
+                        </div>
+                    </form>
+
+                    <!-- Invoice Preview -->
+                    <div class="invoice-container" id="groupInvoice">
+                        <div class="invoice-header">
+                            <h5>Booking Invoice - Galaxy Group</h5>
+                            <p class="mb-0">Stargazing Pachmarhi</p>
+                        </div>
+                        <div class="invoice-details">
+                            <div>
+                                <p><strong>Customer:</strong> <span id="groupInvoiceName">-</span></p>
+                                <p><strong>Phone:</strong> <span id="groupInvoicePhone">-</span></p>
+                            </div>
+                            <div>
+                                <p><strong>Date:</strong> <span id="groupInvoiceDate">-</span></p>
+                                <p><strong>Persons:</strong> <span id="groupInvoicePersons">-</span></p>
+                            </div>
+                        </div>
+                        <div class="invoice-row">
+                            <span>Regular Price:</span>
+                            <span id="groupInvoiceRegularPrice">-</span>
+                        </div>
+                        <div class="invoice-row">
+                            <span>30% Discount:</span>
+                            <span id="groupInvoiceDiscount">-</span>
+                        </div>
+                        <div class="invoice-row">
+                            <span>Total Amount:</span>
+                            <span id="groupInvoiceTotal">-</span>
+                        </div>
+                        <div class="invoice-row">
+                            <span>Advance (40%):</span>
+                            <span id="groupInvoiceAdvance">-</span>
+                        </div>
+                        <div class="invoice-row pending-amount">
+                            <span>Pending (60%):</span>
+                            <span id="groupInvoicePending">-</span>
+                        </div>
+                        <div class="payment-instruction">
+                            <i class="fas fa-info-circle me-2"></i>
+                            <span>60% pending amount to be paid after stargazing session</span>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <p><i class="fas fa-info-circle me-2 text-warning"></i> To confirm your booking, 40% advance payment required via UPI: <strong>9131224289@ybl</strong></p>
+                        <p><i class="fas fa-sync-alt me-2 text-warning"></i> In case of bad weather, session will be rescheduled or full refund provided</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary-custom" id="generateGroupInvoice">Generate Invoice</button>
+                    <button type="button" class="btn btn-success" id="sendGroupWhatsApp" style="display: none;">Send to WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Set minimum date to today for all date inputs
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('individualDate').setAttribute('min', today);
+        document.getElementById('coupleDate').setAttribute('min', today);
+        document.getElementById('groupDate').setAttribute('min', today);
+
+        // Individual Package Logic
+        document.getElementById('generateIndividualInvoice').addEventListener('click', function() {
+            const name = document.getElementById('individualName').value;
+            const phone = document.getElementById('individualPhone').value;
+            const date = document.getElementById('individualDate').value;
+            const persons = parseInt(document.getElementById('individualPersons').value) || 0;
+
+            if (!name || !phone || !date || !persons) {
+                alert('Please fill all required fields before generating invoice.');
+                return;
+            }
+
+            const total = persons * 750;
+            const advance = total * 0.4;
+            const pending = total * 0.6;
+
+            document.getElementById('individualInvoiceName').textContent = name;
+            document.getElementById('individualInvoicePhone').textContent = phone;
+            document.getElementById('individualInvoiceDate').textContent = date;
+            document.getElementById('individualInvoicePersons').textContent = persons;
+            document.getElementById('individualInvoiceTotalPersons').textContent = persons;
+            document.getElementById('individualInvoiceTotal').textContent = 'Rs. ' + total.toFixed(0);
+            document.getElementById('individualInvoiceAdvance').textContent = 'Rs. ' + advance.toFixed(0);
+            document.getElementById('individualInvoicePending').textContent = 'Rs. ' + pending.toFixed(0);
+
+            document.getElementById('individualInvoice').style.display = 'block';
+            document.getElementById('sendIndividualWhatsApp').style.display = 'inline-block';
+            document.getElementById('generateIndividualInvoice').style.display = 'none';
+        });
+
+        document.getElementById('sendIndividualWhatsApp').addEventListener('click', function() {
+            const name = document.getElementById('individualName').value;
+            const phone = document.getElementById('individualPhone').value;
+            const date = document.getElementById('individualDate').value;
+            const persons = parseInt(document.getElementById('individualPersons').value) || 0;
+            const message = document.getElementById('individualMessage').value;
+
+            const total = persons * 750;
+            const advance = total * 0.4;
+            const pending = total * 0.6;
+
+            const whatsappMessage = 
+                `🌟 *STARGAZING PACHMARHI BOOKING* 🌟%0A%0A` +
+                `*Package:* Stargazer Solo%0A` +
+                `*Customer Details:*%0A` +
+                `Name: ${name}%0A` +
+                `Phone: ${phone}%0A` +
+                `Date: ${date}%0A` +
+                `Persons: ${persons}%0A%0A` +
+                `*Invoice Details:*%0A` +
+                `Price per person: Rs. 750%0A` +
+                `Total Amount: Rs. ${total.toFixed(0)}%0A` +
+                `Advance (40%): Rs. ${advance.toFixed(0)}%0A` +
+                `Pending (60%): Rs. ${pending.toFixed(0)}%0A%0A` +
+                `${message ? 'Special Requests: ' + message + '%0A%0A' : ''}` +
+                `*Payment Instructions:*%0A` +
+                `Please pay 40% advance via UPI: 9131224289@ybl%0A` +
+                `60% pending amount to be paid after stargazing session%0A%0A` +
+                `Thank you for booking with Stargazing Pachmarhi! ✨`;
+            
+            const whatsappURL = `https://wa.me/919131224289?text=${whatsappMessage}`;
+            
+            window.open(whatsappURL, '_blank');
+            
+            // Close the modal after submission
+            const modal = bootstrap.Modal.getInstance(document.getElementById('individualModal'));
+            modal.hide();
+        });
+
+        // Couple Package Logic
+        document.getElementById('generateCoupleInvoice').addEventListener('click', function() {
+            const name = document.getElementById('coupleName').value;
+            const phone = document.getElementById('couplePhone').value;
+            const date = document.getElementById('coupleDate').value;
+            const couples = parseInt(document.getElementById('coupleCouples').value) || 0;
+
+            if (!name || !phone || !date || !couples) {
+                alert('Please fill all required fields before generating invoice.');
+                return;
+            }
+
+            const total = couples * 1400;
+            const advance = total * 0.4;
+            const pending = total * 0.6;
+
+            document.getElementById('coupleInvoiceName').textContent = name;
+            document.getElementById('coupleInvoicePhone').textContent = phone;
+            document.getElementById('coupleInvoiceDate').textContent = date;
+            document.getElementById('coupleInvoiceCouples').textContent = couples;
+            document.getElementById('coupleInvoiceTotalCouples').textContent = couples;
+            document.getElementById('coupleInvoiceTotal').textContent = 'Rs. ' + total.toFixed(0);
+            document.getElementById('coupleInvoiceAdvance').textContent = 'Rs. ' + advance.toFixed(0);
+            document.getElementById('coupleInvoicePending').textContent = 'Rs. ' + pending.toFixed(0);
+
+            document.getElementById('coupleInvoice').style.display = 'block';
+            document.getElementById('sendCoupleWhatsApp').style.display = 'inline-block';
+            document.getElementById('generateCoupleInvoice').style.display = 'none';
+        });
+
+        document.getElementById('sendCoupleWhatsApp').addEventListener('click', function() {
+            const name = document.getElementById('coupleName').value;
+            const phone = document.getElementById('couplePhone').value;
+            const date = document.getElementById('coupleDate').value;
+            const couples = parseInt(document.getElementById('coupleCouples').value) || 0;
+            const message = document.getElementById('coupleMessage').value;
+
+            const total = couples * 1400;
+            const advance = total * 0.4;
+            const pending = total * 0.6;
+
+            const whatsappMessage = 
+                `🌟 *STARGAZING PACHMARHI BOOKING* 🌟%0A%0A` +
+                `*Package:* Cosmic Couple%0A` +
+                `*Customer Details:*%0A` +
+                `Name: ${name}%0A` +
+                `Phone: ${phone}%0A` +
+                `Date: ${date}%0A` +
+                `Couples: ${couples}%0A%0A` +
+                `*Invoice Details:*%0A` +
+                `Price per couple: Rs. 1,400%0A` +
+                `Total Amount: Rs. ${total.toFixed(0)}%0A` +
+                `Advance (40%): Rs. ${advance.toFixed(0)}%0A` +
+                `Pending (60%): Rs. ${pending.toFixed(0)}%0A%0A` +
+                `${message ? 'Special Requests: ' + message + '%0A%0A' : ''}` +
+                `*Payment Instructions:*%0A` +
+                `Please pay 40% advance via UPI: 9131224289@ybl%0A` +
+                `60% pending amount to be paid after stargazing session%0A%0A` +
+                `Thank you for booking with Stargazing Pachmarhi! ✨`;
+            
+            const whatsappURL = `https://wa.me/919131224289?text=${whatsappMessage}`;
+            
+            window.open(whatsappURL, '_blank');
+            
+            // Close the modal after submission
+            const modal = bootstrap.Modal.getInstance(document.getElementById('coupleModal'));
+            modal.hide();
+        });
+
+        // Group Package Logic
+        document.getElementById('generateGroupInvoice').addEventListener('click', function() {
+            const name = document.getElementById('groupName').value;
+            const phone = document.getElementById('groupPhone').value;
+            const date = document.getElementById('groupDate').value;
+            const persons = parseInt(document.getElementById('groupPersons').value) || 0;
+
+            if (!name || !phone || !date || !persons) {
+                alert('Please fill all required fields before generating invoice.');
+                return;
+            }
+
+            const regularPrice = persons * 750;
+            const discount = persons >= 5 ? regularPrice * 0.3 : 0;
+            const total = regularPrice - discount;
+            const advance = total * 0.4;
+            const pending = total * 0.6;
+
+            document.getElementById('groupInvoiceName').textContent = name;
+            document.getElementById('groupInvoicePhone').textContent = phone;
+            document.getElementById('groupInvoiceDate').textContent = date;
+            document.getElementById('groupInvoicePersons').textContent = persons;
+            document.getElementById('groupInvoiceRegularPrice').textContent = 'Rs. ' + regularPrice.toFixed(0);
+            document.getElementById('groupInvoiceDiscount').textContent = 'Rs. ' + discount.toFixed(0);
+            document.getElementById('groupInvoiceTotal').textContent = 'Rs. ' + total.toFixed(0);
+            document.getElementById('groupInvoiceAdvance').textContent = 'Rs. ' + advance.toFixed(0);
+            document.getElementById('groupInvoicePending').textContent = 'Rs. ' + pending.toFixed(0);
+
+            document.getElementById('groupInvoice').style.display = 'block';
+            document.getElementById('sendGroupWhatsApp').style.display = 'inline-block';
+            document.getElementById('generateGroupInvoice').style.display = 'none';
+        });
+
+        document.getElementById('sendGroupWhatsApp').addEventListener('click', function() {
+            const name = document.getElementById('groupName').value;
+            const phone = document.getElementById('groupPhone').value;
+            const date = document.getElementById('groupDate').value;
+            const persons = parseInt(document.getElementById('groupPersons').value) || 0;
+            const message = document.getElementById('groupMessage').value;
+
+            const regularPrice = persons * 750;
+            const discount = persons >= 5 ? regularPrice * 0.3 : 0;
+            const total = regularPrice - discount;
+            const advance = total * 0.4;
+            const pending = total * 0.6;
+
+            const whatsappMessage = 
+                `🌟 *STARGAZING PACHMARHI BOOKING* 🌟%0A%0A` +
+                `*Package:* Galaxy Group%0A` +
+                `*Customer Details:*%0A` +
+                `Name: ${name}%0A` +
+                `Phone: ${phone}%0A` +
+                `Date: ${date}%0A` +
+                `Persons: ${persons}%0A%0A` +
+                `*Invoice Details:*%0A` +
+                `Regular Price: Rs. ${regularPrice.toFixed(0)}%0A` +
+                `30% Discount: Rs. ${discount.toFixed(0)}%0A` +
+                `Total Amount: Rs. ${total.toFixed(0)}%0A` +
+                `Advance (40%): Rs. ${advance.toFixed(0)}%0A` +
+                `Pending (60%): Rs. ${pending.toFixed(0)}%0A%0A` +
+                `${message ? 'Special Requests: ' + message + '%0A%0A' : ''}` +
+                `*Payment Instructions:*%0A` +
+                `Please pay 40% advance via UPI: 9131224289@ybl%0A` +
+                `60% pending amount to be paid after stargazing session%0A%0A` +
+                `Thank you for booking with Stargazing Pachmarhi! ✨`;
+            
+            const whatsappURL = `https://wa.me/919131224289?text=${whatsappMessage}`;
+            
+            window.open(whatsappURL, '_blank');
+            
+            // Close the modal after submission
+            const modal = bootstrap.Modal.getInstance(document.getElementById('groupModal'));
+            modal.hide();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Auto-slide the carousel
+        const myCarousel = document.getElementById('galleryCarousel');
+        const carousel = new bootstrap.Carousel(myCarousel, {
+            interval: 3000, // Change slide every 3 seconds
+            wrap: true
+        });
+    </script>
+</body>
+</html>
